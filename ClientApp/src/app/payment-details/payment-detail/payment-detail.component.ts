@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentDetailService } from 'src/app/shared/payment-detail.service';
 import { NgForm } from '@angular/forms';
 import { faUserCircle, faCreditCard, faCalendar, faKey, faDatabase } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-payment-detail',
   templateUrl: './payment-detail.component.html',
@@ -14,7 +15,7 @@ export class PaymentDetailComponent implements OnInit {
   faCalender = faCalendar;
   faKey = faKey;
   faDatabase = faDatabase;
-  constructor(public service: PaymentDetailService) { }
+  constructor(public service: PaymentDetailService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -45,9 +46,10 @@ export class PaymentDetailComponent implements OnInit {
       res => {
         this.resetForm(form);
         this.service.refreshList();
-        console.log('Success');
+        this.toastr.success('Successfull');
       },
       err => {
+        this.toastr.warning('An Error Occured');
         console.log(err);
       }
     );
@@ -57,9 +59,10 @@ export class PaymentDetailComponent implements OnInit {
       res => {
         this.resetForm(form);
         this.service.refreshList();
-        console.log('Success');
+        this.toastr.success('Successfull');
       },
       err => {
+        this.toastr.warning('An Error Occured');
         console.log(err);
       }
     );
