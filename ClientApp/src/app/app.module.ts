@@ -14,6 +14,7 @@ import { PaymentDetailListComponent } from './payment-details/payment-detail-lis
 import { PaymentDetailService } from './shared/payment-detail.service';
 import { FormsModule } from '@angular/forms';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,16 +23,17 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
     PaymentDetailsComponent,
     PaymentDetailComponent,
     PaymentDetailListComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AppRoutingModule,
   ],
   providers: [PaymentDetailService],
   bootstrap: [AppComponent]

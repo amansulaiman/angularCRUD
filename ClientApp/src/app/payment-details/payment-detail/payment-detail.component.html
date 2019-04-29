@@ -42,8 +42,11 @@
         </div>
     </div>
   </div>
-  
+
   <div class="form-group">
-    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><fa-icon [icon]="faDatabase"></fa-icon> Submit</button>
+    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><fa-icon [icon]="faDatabase"></fa-icon><span *ngIf="service.formData.id == null;else update"> Submit</span></button>
+    <ng-template #update>
+      Update
+    </ng-template>
   </div>
 </form>
