@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <IsPackable>false</IsPackable>
+        <!-- Set this to true if you enable server-side prerendering -->
+        <BuildServerSideRenderer>false</BuildServerSideRenderer>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.1" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="ClientApp\.editorconfig" />
+      <None Remove="ClientApp\.gitignore" />
+      <None Remove="ClientApp\README.md" />
+      <None Remove="ClientApp\yarn-error.log" />
+      <None Remove="ClientApp\yarn.lock" />
+      <None Remove="ClientApp\e2e\protractor.conf.js" />
+      <None Remove="ClientApp\e2e\src\app.e2e-spec.ts" />
+      <None Remove="ClientApp\e2e\src\app.po.ts" />
+      <None Remove="ClientApp\src\browserslist" />
+      <None Remove="ClientApp\src\index.html" />
+      <None Remove="ClientApp\src\karma.conf.js" />
+      <None Remove="ClientApp\src\main.ts" />
+      <None Remove="ClientApp\src\polyfills.ts" />
+      <None Remove="ClientApp\src\styles.css" />
+      <None Remove="ClientApp\src\test.ts" />
+      <None Remove="ClientApp\src\app\app.component.css" />
+      <None Remove="ClientApp\src\app\app.component.html" />
+      <None Remove="ClientApp\src\app\app.component.ts" />
+      <None Remove="ClientApp\src\app\app.module.ts" />
+      <None Remove="ClientApp\src\app\app.server.module.ts" />
+      <None Remove="ClientApp\src\app\counter\counter.component.html" />
+      <None Remove="ClientApp\src\app\counter\counter.component.spec.ts" />
+      <None Remove="ClientApp\src\app\counter\counter.component.ts" />
+      <None Remove="ClientApp\src\app\fetch-data\fetch-data.component.html" />
+      <None Remove="ClientApp\src\app\fetch-data\fetch-data.component.ts" />
+      <None Remove="ClientApp\src\app\home\home.component.html" />
+      <None Remove="ClientApp\src\app\home\home.component.ts" />
+      <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.css" />
+      <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.html" />
+      <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
+      <None Remove="ClientApp\src\assets\.gitkeep" />
+      <None Remove="ClientApp\src\environments\environment.prod.ts" />
+      <None Remove="ClientApp\src\environments\environment.ts" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Remove="ClientApp\angular.json" />
+      <Content Remove="ClientApp\package-lock.json" />
+      <Content Remove="ClientApp\package.json" />
+      <Content Remove="ClientApp\tsconfig.json" />
+      <Content Remove="ClientApp\tslint.json" />
+      <Content Remove="ClientApp\e2e\tsconfig.e2e.json" />
+      <Content Remove="ClientApp\src\tsconfig.app.json" />
+      <Content Remove="ClientApp\src\tsconfig.server.json" />
+      <Content Remove="ClientApp\src\tsconfig.spec.json" />
+      <Content Remove="ClientApp\src\tslint.json" />
+    </ItemGroup>
+</Project>
