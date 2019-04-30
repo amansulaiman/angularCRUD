@@ -5,20 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace angular.Models
 {
-    public class User
+    public class User:BaseModel
     {
-        public User()
-        { }
-        [Key]
-        public string UserID { get; set; }
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-        public string FullName { get; set; }
-        public DateTimeOffset? DOB { get; set; }
-        [DataType(DataType.PhoneNumber)]
-        public string PhoneNumber { get; set; }
-        public string Role { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Username { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
     }
 
 }

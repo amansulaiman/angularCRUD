@@ -8,12 +8,16 @@ namespace angular.Models
 {
     public class BaseModel
     {
-        [Key]
-        public string Id { get; set; }
-        public void GenerateID()
+        public BaseModel()
         {
             Id = Guid.NewGuid().ToString();
             CreatedAt = new DateTimeOffset(DateTime.Now);
+        }
+        [Key]
+        public string Id { get; set; }
+        public void GenerateNewID()
+        {
+            Id = Guid.NewGuid().ToString();
         }
         [Display(Name = "Created At")]
         [ScaffoldColumn(false)]

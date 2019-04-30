@@ -90,7 +90,10 @@ namespace angular.Controllers
         [HttpPost]
         public async Task<ActionResult<PaymentDetail>> CreatePaymentDetail([FromBody]PaymentDetail paymentDetail)
         {
-            paymentDetail.GenerateID();
+            if (paymentDetail.Id == null)
+            {
+                paymentDetail.GenerateNewID();
+            }
             if (ModelState.IsValid)
             {
                 _context.PaymentDetails.Add(paymentDetail);

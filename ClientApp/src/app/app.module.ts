@@ -15,6 +15,7 @@ import { PaymentDetailService } from './shared/payment-detail.service';
 import { FormsModule } from '@angular/forms';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AlertComponent } from './user-registration/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PaymentDetailComponent,
     PaymentDetailListComponent,
     NavMenuComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
