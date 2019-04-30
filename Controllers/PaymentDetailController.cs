@@ -22,10 +22,10 @@ namespace angular.Controllers
         [HttpGet()]
         public async Task<IEnumerable<PaymentDetail>> GetAll()
         {
-            if (!await _context.PaymentDetails.AnyAsync())
-            {
-                await Initialize();
-            }
+            // if (!await _context.PaymentDetails.AnyAsync())
+            // {
+            //     await Initialize();
+            // }
             return await _context.PaymentDetails.ToListAsync();
         }
         private async Task<bool> Initialize()

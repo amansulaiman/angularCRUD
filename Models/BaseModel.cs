@@ -13,12 +13,13 @@ namespace angular.Models
         public void GenerateID()
         {
             Id = Guid.NewGuid().ToString();
+            CreatedAt = new DateTimeOffset(DateTime.Now);
         }
-        // [Display(Name = "Created At")]
-        // [ScaffoldColumn(false)]
-        // public DateTimeOffset CreatedAt { get; set; }
-        // [Display(Name = "Created By")]
-        // [ScaffoldColumn(false)]
-        // public string CreatedUser { get; set; }
+        [Display(Name = "Created At")]
+        [ScaffoldColumn(false)]
+        public DateTimeOffset CreatedAt { get; set; }
+        [Display(Name = "Created By")]
+        [ScaffoldColumn(false)]
+        public string CreatedUser { get; set; }
     }
 }
