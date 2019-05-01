@@ -1,14 +1,14 @@
 using angular.Models;
-using AutoMapper;
+// using AutoMapper;
 
 namespace angular.Data
 {
-    public class AutoMapperProfile: Profile
+    public class AutoMapperProfile//: Profile
     {
         public AutoMapperProfile()
         {
-            CreateMap<User, UserDto>();
-            CreateMap<UserDto, User>();
+            // CreateMap<User, UserDto>();
+            // CreateMap<UserDto, User>();
         }
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore.InMemory;
 using angular.Models;
-using AutoMapper;
+//using AutoMapper;
 using System;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -38,7 +38,7 @@ namespace angular
                 options.UseInMemoryDatabase("myDB"));
 
             services.AddRouting();
-            services.AddAutoMapper();
+            //services.AddAutoMapper();
 
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");

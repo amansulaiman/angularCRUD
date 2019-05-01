@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using angular.Data;
 using angular.Models;
 using angular.Services;
-using AutoMapper;
+//using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -20,16 +21,16 @@ namespace angular.Controllers
     public class UserController: ControllerBase
     {
         private IUserService _userService;
-        private IMapper _mapper;
+        //private IMapper _mapper;
         private readonly AppSettings _appSettings;
 
         public UserController(
             IUserService userService,
-            IMapper mapper,
+            //IMapper mapper,
             IOptions<AppSettings> appSettings)
         {
             _userService = userService;
-            _mapper = mapper;
+            //_mapper = mapper;
             _appSettings = appSettings.Value;
         }
         
@@ -72,7 +73,11 @@ namespace angular.Controllers
         public IActionResult Register([FromBody]UserDto userDto)
         {
             // map dto to entity
-            var user = _mapper.Map<User>(userDto);
+            var user = new User(){
+                FirstName =userDto.FirstName,
+                LastName = userDto.LastName,
+                Username = userDto.Username
+            };
 
             try 
             {
@@ -90,24 +95,36 @@ namespace angular.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var users =  _userService.GetAll();
-            var userDtos = _mapper.Map<IList<UserDto>>(users);
-            return Ok(userDtos);
+            var users =  _userService.GetAll().Select(a => new {a.LastName, a.CreatedAt, a.CreatedUser, a.FirstName, a.Id, a.Username});
+            //var userDtos = _mapper.Map<IList<UserDto>>(users);
+            return Ok(users);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {
             var user =  _userService.GetById(id);
-            var userDto = _mapper.Map<UserDto>(user);
-            return Ok(userDto);
+            //var userDto = _mapper.Map<UserDto>(user);
+            return Ok(new {
+                user.Id, 
+                user.CreatedAt, 
+                user.CreatedUser,
+                user.FirstName,
+                user.LastName,
+                user.Username
+            });
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(string id, [FromBody]UserDto userDto)
         {
             // map dto to entity and set id
-            var user = _mapper.Map<User>(userDto);
+            //var user = _mapper.Map<User>(userDto);
+            var user = new User(){
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName,
+                Username = userDto.Username
+            };
             user.Id = id;
 
             try 

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -16,6 +16,11 @@ import { FormsModule } from '@angular/forms';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AlertComponent } from './user-registration/alert/alert.component';
+import { JwtInterceptor } from './user-registration/helper/jwt-interceptor';
+import { ErrorInterceptor } from './user-registration/helper/error-interceptor';
+import { LoginComponent } from './user-registration/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './user-registration/register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,18 +31,24 @@ import { AlertComponent } from './user-registration/alert/alert.component';
     PaymentDetailListComponent,
     NavMenuComponent,
     PageNotFoundComponent,
-    AlertComponent
+    AlertComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     AppRoutingModule,
   ],
-  providers: [PaymentDetailService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    PaymentDetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

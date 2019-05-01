@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace angular.Models
 {
     public class UserDto:BaseModel
