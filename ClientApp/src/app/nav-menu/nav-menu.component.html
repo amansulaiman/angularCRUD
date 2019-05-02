@@ -7,6 +7,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
+        <div class="navbar-nav">
+            <button class="btn btn-outline-success my-2 my-sm-0" (click)="logout()">Logout</button>
+        </div>
         <ul class="navbar-nav flex-grow">
           <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
             <a class="nav-link text-dark" [routerLink]='["/"]'>CRUD</a>
@@ -14,11 +17,9 @@
           <li class="nav-item" [routerLinkActive]='["link-active"]'>
             <a class="nav-link text-dark" [routerLink]='["/tutorial", "Sample"]'>Tutorial</a>
           </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a class="nav-item nav-link" (click)="logout()">Logout</a>
-            </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-dark" [routerLink]='["/tutorial", "Sample"]'>Hi {{currentUser.firstName + currentUser.lastName}}!</a>
+          </li>
         </ul>
       </div>
     </div>
