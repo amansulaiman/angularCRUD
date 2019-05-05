@@ -9,8 +9,13 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 })
 export class PaymentDetailListComponent implements OnInit {
   faTrash = faTrash;
+  displayedColumns: string[] = ['cardOwner', 'cardNumber', 'expDate'];
   constructor(public service: PaymentDetailService) { }
-
+  columnDefs = [
+    {headerName: 'Card Owner', field: 'cardOwner', sortable: true, filter: true, checkboxSelection: true},
+    {headerName: 'Card Number', field: 'cardNumber', sortable: true, filter: true},
+    {headerName: 'Exp. Date', field: 'expDate', sortable: true, filter: true}
+  ];
   ngOnInit() {
     this.service.refreshList();
   }

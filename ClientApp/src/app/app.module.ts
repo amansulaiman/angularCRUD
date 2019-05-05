@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,11 @@ import { ErrorInterceptor } from './user-registration/helper/error-interceptor';
 import { LoginComponent } from './user-registration/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './user-registration/register/register.component';
-
+import { MaterialNavComponent } from './material-nav/material-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+// tslint:disable-next-line:max-line-length
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatTableModule, MatMenuModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +39,7 @@ import { RegisterComponent } from './user-registration/register/register.compone
     AlertComponent,
     LoginComponent,
     RegisterComponent,
+    MaterialNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,18 @@ import { RegisterComponent } from './user-registration/register/register.compone
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AgGridModule.withComponents([]),
     ToastrModule.forRoot(),
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatCardModule,
+    MatTableModule,
+    MatMenuModule,
+    FlexLayoutModule,
     AppRoutingModule,
   ],
   providers: [

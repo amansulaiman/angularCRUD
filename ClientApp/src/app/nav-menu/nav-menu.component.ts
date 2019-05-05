@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../user-registration/services/authentication.service';
 import { User } from '../user-registration/models/user.model';
+import { TitleService } from '../shared/title.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -13,7 +14,8 @@ export class NavMenuComponent {
   isExpanded = false;
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private tittleService: TitleService
   ) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }

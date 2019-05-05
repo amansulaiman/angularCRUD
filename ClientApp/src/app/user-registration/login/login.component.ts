@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { AlertServiceService } from '../services/alert-service.service';
 import { first } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -21,13 +22,13 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertServiceService
-) {
-    // redirect to home if already logged in
-    if (this.authenticationService.currentUserValue) { 
-        this.router.navigate(['/']);
-    }
-}
+    private toastr: ToastrService
+  ) {
+      // redirect to home if already logged in
+      if (this.authenticationService.currentUserValue) {
+          this.router.navigate(['/']);
+      }
+  }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -58,7 +59,7 @@ export class LoginComponent implements OnInit {
                   this.router.navigate([this.returnUrl]);
               },
               error => {
-                  this.alertService.error(error);
+                  this.toastr.error(error);
                   this.loading = false;
               });
   }
